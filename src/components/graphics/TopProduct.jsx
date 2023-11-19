@@ -31,7 +31,7 @@ const TopProduct = () => {
       .sort((a, b) => b.Total - a.Total) 
       .slice(0, 4); 
 
-    /
+    
     const data = [['Product', 'Total']];
     filteredData.forEach((item) => {
       data.push([item.Product, item.Total]);
