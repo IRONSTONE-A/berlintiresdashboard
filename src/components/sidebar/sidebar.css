@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins&display=swap');
+
+.sidebar-container{
+width: 15vw;
+/* min-width: 300px;
+max-width: 460px; */
+height: 100%;
+/* background-color: bisque; */
+padding: 1.5rem;
+/* text-align: center; */
+}
+.sidebar-title{
+    color:#151D48; 
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Poppins;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 150%;
+    margin: 40px 0;
+    /* text-align: center; */
+    }
+
+.active{
+    
+        display: flex;
+        width: 65%;
+        height: 4rem;
+        padding: 1rem 1.5rem;
+        align-items: center;
+        gap: 24px;
+        flex-shrink: 0;
+        border-radius: 1rem;
+        box-shadow: 0px 20px 50px 0px rgba(55, 69, 87, 0.10);
+        background-color:#5D5FEF ;
+        /* margin: auto; */
+        min-width: 220px;
+    }
+
+    .active img{
+        background-color:white;
+        border-radius: 4px;
+        
+    }
+
+    .active p{
+        color:white;
+    }
+
+    .sidebar-item-container{
+    
+        display: flex;
+        width: 65%;
+        min-width: 220px;
+        height: 4rem;
+        padding: 1rem 1.5rem;
+        align-items: center;
+        gap: 1.5rem;
+        flex-shrink: 0;
+        color:#737791;
+        /* margin: auto; */
+        
+        }
+
+.sidebar-container a{
+    text-decoration: none;
+}

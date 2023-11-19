@@ -1,0 +1,92 @@
+.graphics-container{
+    /* width: 100%; */
+    /* height: calc(100vh - 6rem); */
+    display: grid;
+    background-color:#eff0f2 ;
+    /* grid-template-rows: 220px 220px 220px; */
+    /* grid-auto-rows: 30%; */
+    gap:10px;
+    padding: 10px;
+}
+
+.graphics-container-first-line{
+    /* background-color: brown; */
+    display:grid;
+    grid-template-columns: 50% 50%;
+    gap:10px
+    
+    
+}
+.graphics-container-second-line{
+    /* background-color: blue; */
+    display:grid;
+    grid-template-columns: 1.7fr 1fr 1fr;
+    gap:10px
+    
+}
+
+.graphics-container-third-line{
+    display: grid;
+    /* grid-template-columns: 1fr; */
+}
+
+
+
+.filter-panel-container-content{
+    display:grid;
+    grid-template-columns: 1.7fr 1fr 1fr;
+    gap:10px
+}
+
+.filter-picker{
+    text-align: end;
+    margin-right: 50px;
+}
+
+.today-sales-container{
+    padding: 20px;
+    height: 300px;
+}
+.today-sales-content{
+    display: flex;
+    padding: 10px;
+    gap:15px;
+    justify-content: space-evenly;
+    margin-top:20px
+    
+    
+}
+.today_total_sales, .today_total_order, .today_product_sold{
+    width: 33%;
+    height: 170px ;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.today-sales-container{
+    background-color: #fff;
+}
+.today_total_sales{
+   background-color:#FFE2E5 ;
+  
+}
+.today_total_order{
+   background-color:#FFF4DE ; 
+  
+}
+.today_product_sold{
+   background-color:#DCFCE7 ; 
+  
+}
+
+.today-sales-img{
+    width: 32px;
+}
+
+.today-sales-comparasion{
+    color:dodgerblue;
+    font-size:.7rem
+}
+
