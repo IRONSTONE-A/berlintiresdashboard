@@ -68,7 +68,7 @@ const SalesMapping = ({data}) => {
       <button onClick={handleFilterClick}>Filtrele</button>
       <Chart
         width={'100%'}
-        height={'270px'}
+        height={'300px'}
         chartType="GeoChart"
         loader={<div>Loading Chart...</div>}
         data={[

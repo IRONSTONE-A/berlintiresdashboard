@@ -69,7 +69,7 @@ const SalesBranch = ({ data }) => {
             <Chart
               chartType="ColumnChart"
               width="100%"
-              height="270px"
+              height="300px"
               data={filteredChartData}
               options={{
                 isStacked: true,

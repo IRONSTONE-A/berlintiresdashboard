@@ -52,7 +52,7 @@ const TopProduct = () => {
       </div>
       <Chart
         width={'100%'}
-        height={'270px'}
+        height={'300px'}
         chartType="BarChart"
         loader={<div>Loading Chart</div>}
         data={chartData}
