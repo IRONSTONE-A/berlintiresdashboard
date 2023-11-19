@@ -32,7 +32,7 @@ const SalesMapping = ({data}) => {
       );
     });
 
-   
+    
     const totalByCountry = {};
     filtered.forEach((item) => {
       const country = item.Country;
