@@ -48,24 +48,19 @@ const SalesMapping = ({data}) => {
 
   return (
     <div className='sales-mapping-container'>
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => handleDateChange([date, endDate])}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}
-        placeholderText="Başlangıç Tarihi"
+       <input
+        type="date"
+        value={startDate}
+        onChange={(e) => setStartDate(e.target.value)}
       />
-      <DatePicker
-        selected={endDate}
-        onChange={(date) => handleDateChange([startDate, date])}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
-        placeholderText="Bitiş Tarihi"
+
+      <input
+        type="date"
+        value={endDate}
+        onChange={(e) => setEndDate(e.target.value)}
       />
-      <button onClick={handleFilterClick}>Filtrele</button>
+
+      <button onClick={handleFilter}>Filtrele</button>
       <Chart
         width={'100%'}
         height={'300px'}

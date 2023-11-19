@@ -41,7 +41,7 @@ const FilterPanel = () => {
   }
   return (
     <div className='filter-panel-container' >
-    <div className='filter-picker'>
+    {/* <div className='filter-picker'>
     <DatePicker
         selected={startDate}
         onChange={(date) => handleDateChange([date, endDate])}
@@ -60,7 +60,7 @@ const FilterPanel = () => {
         placeholderText="Bitiş Tarihi"
       />
       <button onClick={handleFilterClick}>Filtrele</button>
-    </div>
+    </div> */}
     
 <div className="filter-panel-container-content">
 <TopProduct/>
