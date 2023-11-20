@@ -19,7 +19,7 @@ const SalesBranch = ({ filteredChartData }) => {
               options={{
                 isStacked: true,
                 vAxis: { title: "Total", viewWindow: { max: 5000 } },
-                hAxis: { title: "Date" },
+                hAxis: { title: "Date"},
               }}
             />
           </>
