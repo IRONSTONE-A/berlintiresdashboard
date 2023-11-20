@@ -135,7 +135,7 @@ const handleFilterClickTopProduct = () => {
         selectsStart
         startDate={startDate}
         endDate={endDate}
-        placeholderText="Başlangıç Tarihi"
+        placeholderText="Start Date"
       />
       <DatePicker
         selected={endDate}
@@ -144,9 +144,9 @@ const handleFilterClickTopProduct = () => {
         startDate={startDate}
         endDate={endDate}
         minDate={startDate}
-        placeholderText="Bitiş Tarihi"
+        placeholderText="Finish Date"
       />
-      <button onClick={handleFilterClick}>Filtrele</button>
+      <button onClick={handleFilterClick}>Filter</button>
     </div>
     
 <div className="filter-panel-container-content">
