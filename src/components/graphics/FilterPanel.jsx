@@ -110,14 +110,10 @@ const handleFilter = () => {
 
 const handleFilterClickTopProduct = () => {
   // Filtreleme butonuna basıldığında tarih aralığına göre filtreleme yap
-  const filteredData = TopProductDataParse
-    .filter((item) => {
-      // Tarih aralığına göre filtrele
-      if (startDate && endDate) {
-        return item.Date >= startDate && item.Date <= endDate;
-      }
-      return true; // Tarih filtresi yoksa tüm veriyi göster
-    })
+  const filteredData = TopProductDataParse.filter((item) => {
+    const itemDate = new Date(item.Date);
+    return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
+  })
     .sort((a, b) => b.Total - a.Total) // Total değerine göre sırala (büyükten küçüğe)
     .slice(0, 4); // İlk dört ürünü al
 
