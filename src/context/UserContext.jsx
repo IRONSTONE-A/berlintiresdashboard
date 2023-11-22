@@ -4,7 +4,7 @@ import React, { createContext, useState } from 'react'
 export const UserContext = createContext()
 
 const UserContextProvider = ({children}) => {
-    const [admin,setAdmin] = useState(true)
+    const [admin,setAdmin] = useState(false)
     const [login, setLogin] = useState(true)
     // const admin = true
 
