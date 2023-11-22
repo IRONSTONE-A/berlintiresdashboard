@@ -1,37 +1,65 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import TopProduct from './TopProduct'
-import SalesMapping from './SalesMaping'
-import SalesBranch from './SalesBranch'
+import TopProduct from './TopProduct';
+import SalesMapping from './SalesMaping';
+import SalesBranch from './SalesBranch';
 
 
-import SalesMapingData from "../../datasets/sales_mapping_by_country.json"
-const SalesMapingDataParse = JSON.parse(SalesMapingData)
-// console.log(SalesMapingDataParse)
-import SalesBranchData from '../../datasets/sales_by_branch.json'
-const SalesBranchDataParse = JSON.parse(SalesBranchData)
-// console.log(SalesBranchDataParse)
+import SalesMapingData from "../../datasets/sales_mapping_by_country.json";
+const SalesMapingDataParse = JSON.parse(SalesMapingData);
 
-import TopProductData from "../../datasets/top_products.json"
-const TopProductDataParse = JSON.parse(TopProductData)
-// console.log(TopProductDataParse)
+import SalesBranchData from '../../datasets/sales_by_branch.json';
+const SalesBranchDataParse = JSON.parse(SalesBranchData);
+
+import TopProductData from "../../datasets/top_products.json";
+const TopProductDataParse = JSON.parse(TopProductData);
 
 const FilterPanel = () => {
-  const defaultStartDate = new Date('2019-03-01');
   const defaultEndDate = new Date('2019-03-30');
+  const defaultStartDate = new Date('2019-03-01')
+  const switchStart = new Date(defaultEndDate);
 
+  const calculateStartDate = (option, endDate) => {
+    setFilterOption(option)
+    console.log("start",switchStart, typeof switchStart)
+    console.log("option", option)
+    switch (option) {
+      case 'last7Days':
+        new Date (switchStart.setDate(endDate.getDate() - 7));
+        
+        break;
+      case 'last15Days':
+       new Date (switchStart.setDate(endDate.getDate() - 15));
+        break;
+      case 'last30Days':
+       new Date (switchStart.setDate(endDate.getDate() - 30));
+        break;
+      
+      default:
+        break;
+    }
+    
+
+setStartDate(switchStart)
+    return switchStart
+    
+  };
+
+  const [filterOption, setFilterOption] = useState('currentMonth');
   const [startDate, setStartDate] = useState(defaultStartDate);
   const [endDate, setEndDate] = useState(defaultEndDate);
-  const [filteredData, setFilteredData] = useState([]); // sales maping
-  const [filteredChartData, setFilteredChartData] = useState(null); //sales Branch
-  const [chartData, setChartData] = useState([]); //top product
+  const [filteredData, setFilteredData] = useState([]);
+  const [filteredChartData, setFilteredChartData] = useState(null);
+  const [chartData, setChartData] = useState([]);
+  console.log("end", endDate)
+  console.log("start", startDate)
 
   useEffect(() => {
-    handleFilterClick()
+    handleFilterClick();
+  }, [filterOption]);
+
   
-    
-  }, [])
 
   const handleDateChange = (dates) => {
     const [start, end] = dates;
@@ -39,125 +67,128 @@ const FilterPanel = () => {
     setEndDate(end);
   };
 
-const handleFilterClick = ( ) => {
-  handleFilterClickMaping()
-  handleFilter()
-  handleFilterClickTopProduct()
-}
-
-
-
-const handleFilterClickMaping = () => {
-  // Seçilen tarih aralığına göre verileri filtrele
-  const filtered = SalesMapingDataParse.filter((item) => {
-    const itemDate = new Date(item.Date); // Veri setinizdeki tarih formatına göre ayarlayın
-    return (
-      !isNaN(itemDate.getTime()) &&
-      ((startDate === null && endDate === null) ||
-        (startDate !== null && endDate !== null && itemDate >= startDate && itemDate <= endDate))
-    );
-  });
-
-  // Her ülke için toplam total değerini hesapla
-  const totalByCountry = {};
-  filtered.forEach((item) => {
-    const country = item.Country;
-    const total = totalByCountry[country] || 0;
-    totalByCountry[country] = total + item.Total;
-  });
-
-  // Sonuçları tek bir değere çevir
-  const result = Object.keys(totalByCountry).map((country) => [country, totalByCountry[country]]);
-
-  setFilteredData(result);
-};
-
-const handleFilter = () => {
-  // Tarih aralığına göre filtreleme işlemi
-  const filteredData = SalesBranchDataParse.filter((item) => {
-    const itemDate = new Date(item.Date);
-    return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
-  });
-
-  // Branchara göre toplam değerleri hesapla
-  const branchTotals = {
-    A: 0,
-    B: 0,
-    C: 0,
+  const handleFilterClick = () => {
+    handleFilterClickMaping();
+    handleFilter();
+    handleFilterClickTopProduct();
   };
 
-  filteredData.forEach((item) => {
-    branchTotals[item.Branch] += item.Total;
-  });
+  const handleFilterClickMaping = () => {
+    const filtered = SalesMapingDataParse.filter((item) => {
+      const itemDate = new Date(item.Date);
+      return (
+        !isNaN(itemDate.getTime()) &&
+        ((startDate === null && endDate === null) ||
+          (startDate !== null && endDate !== null && itemDate >= startDate && itemDate <= endDate))
+      );
+    });
 
-  // Toplam değerleri state'e kaydet
-  setFilteredChartData([
-    ["Date", "A", "B", "C"],
-    ...filteredData.map((item) => [
-      item.Date,
-      item.Branch === "A" ? item.Total : 0,
-      item.Branch === "B" ? item.Total : 0,
-      item.Branch === "C" ? item.Total : 0,
-    ]),
-    [
-      "Total",
-      Math.min(branchTotals.A, 10000),
-      Math.min(branchTotals.B, 10000),
-      Math.min(branchTotals.C, 10000),
-    ],
-  ]);
-};
+    const totalByCountry = {};
+    filtered.forEach((item) => {
+      const country = item.Country;
+      const total = totalByCountry[country] || 0;
+      totalByCountry[country] = total + item.Total;
+    });
 
-const handleFilterClickTopProduct = () => {
-  // Filtreleme butonuna basıldığında tarih aralığına göre filtreleme yap
-  const filteredData = TopProductDataParse.filter((item) => {
-    const itemDate = new Date(item.Date);
-    return itemDate >= new Date(startDate) && itemDate <= new Date(endDate);
-  })
-    .sort((a, b) => b.Total - a.Total) // Total değerine göre sırala (büyükten küçüğe)
-    .slice(0, 4); // İlk dört ürünü al
+    const result = Object.keys(totalByCountry).map((country) => [country, totalByCountry[country]]);
 
-  // Chart verilerini oluştur
-  const data = [['Product', 'Total']];
-  filteredData.forEach((item) => {
-    data.push([item.Product, item.Total]);
-  });
+    setFilteredData(result);
+  };
 
-  // State'i güncelle
-  setChartData(data);
-};
+  const handleFilter = () => {
+    const filteredData = SalesBranchDataParse.filter((item) => {
+      const itemDate = new Date(item.Date);
+      return itemDate >= startDate && itemDate <= endDate;
+    });
+
+    const branchTotals = {
+      A: 0,
+      B: 0,
+      C: 0,
+    };
+
+    filteredData.forEach((item) => {
+      branchTotals[item.Branch] += item.Total;
+    });
+
+    setFilteredChartData([
+      ["Date", "A", "B", "C"],
+      ...filteredData.map((item) => [
+        item.Date,
+        item.Branch === "A" ? item.Total : 0,
+        item.Branch === "B" ? item.Total : 0,
+        item.Branch === "C" ? item.Total : 0,
+      ]),
+      [
+        "Total",
+        Math.min(branchTotals.A, 10000),
+        Math.min(branchTotals.B, 10000),
+        Math.min(branchTotals.C, 10000),
+      ],
+    ]);
+  };
+
+  const handleFilterClickTopProduct = () => {
+    const filteredData = TopProductDataParse.filter((item) => {
+      const itemDate = new Date(item.Date);
+      return itemDate >= startDate && itemDate <= endDate;
+    })
+      .sort((a, b) => b.Total - a.Total)
+      .slice(0, 4);
+
+    const data = [['Product', 'Total']];
+    filteredData.forEach((item) => {
+      data.push([item.Product, item.Total]);
+    });
+
+    setChartData(data);
+  };
+
+  
+
   return (
-    <div className='filter-panel-container' >
-    <div className='filter-picker'>
-    <DatePicker
-        selected={startDate}
-        onChange={(date) => handleDateChange([date, endDate])}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}
-        placeholderText="Start Date"
-      />
-      <DatePicker
-        selected={endDate}
-        onChange={(date) => handleDateChange([startDate, date])}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
-        placeholderText="Finish Date"
-      />
-      <button onClick={handleFilterClick}>Filter</button>
+    <div className='filter-panel-container'>
+      <div className='filter-picker'>
+        <DatePicker
+        className='date-picker'
+          selected={startDate}
+          onChange={(date) => handleDateChange([date, endDate])}
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
+          placeholderText="Start Date"
+        />
+        <DatePicker
+        className='date-picker'
+          selected={endDate}
+          onChange={(date) => handleDateChange([startDate, date])}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+          placeholderText="Finish Date"
+        />
+        <button className='filterBtn' onClick={handleFilterClick}>Filter</button>
+        <select
+          className='select-picker'
+          value={filterOption}
+          onChange={(e) => calculateStartDate(e.target.value, defaultEndDate )}
+        >
+          <option value="last7Days">Last 7 Days</option>
+          <option value="last15Days">Last 15 Days</option>
+          <option value="last30Days">Last 30 Days</option>
+          
+        </select>
+        
+      </div>
+
+      <div className="filter-panel-container-content">
+        <TopProduct chartData={chartData} />
+        <SalesMapping filteredData={filteredData} />
+        <SalesBranch filteredChartData={filteredChartData} />
+      </div>
     </div>
-    
-<div className="filter-panel-container-content">
-<TopProduct chartData = {chartData} />
-<SalesMapping filteredData= {filteredData}  />
-<SalesBranch filteredChartData = {filteredChartData}  />
+  );
+};
 
-</div>
-
-    </div>
-  )
-}
-
-export default FilterPanel
+export default FilterPanel;

@@ -8,13 +8,37 @@ import userImage from "../../assets/userImage.png"
 import GermanyFlag from "../../assets/GermanyFlag.png"
 import { UserContext } from '../../context/UserContext'
 import { LangContext } from '../../context/LanguageContext'
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
+    const location = useLocation()
+    console.log(typeof location.pathname)
     const {roleFunc, admin,login, signIn} = useContext(UserContext)
     const {german, changeLanguage} = useContext(LangContext)
   return (
     <div className="header-container">
-        <div className="header-title">Dashboard</div>
+    {location.pathname === "/" && (
+      <div className="header-title">Dashboard</div>
+    )}
+    {location.pathname === "/leaderboard" && (
+      <div className="header-title">Leaderboard</div>
+    )}
+    {location.pathname === "/order" && (
+      <div className="header-title">Order</div>
+    )}
+    {location.pathname === "/products" && (
+      <div className="header-title">Products</div>
+    )}
+    {location.pathname === "/salesreports" && (
+      <div className="header-title">Sales Reports</div>
+    )}
+    {location.pathname === "/messages" && (
+      <div className="header-title">Messages</div>
+    )}
+    {location.pathname === "/setting" && (
+      <div className="header-title">Setting</div>
+    )}
+        {/* <div className="header-title">Dashboard</div> */}
         <div className="header-right-wrapper">
             <div className="header-search-input">
                 <img src={magnifier} alt="" />

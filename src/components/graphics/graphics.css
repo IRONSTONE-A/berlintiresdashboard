@@ -1,16 +1,14 @@
 .graphics-container{
-    /* width: 100%; */
-    /* height: calc(100vh - 6rem); */
+   
     display: grid;
     background-color:#eff0f2 ;
-    /* grid-template-rows: 220px 220px 220px; */
-    /* grid-auto-rows: 30%; */
+    
     gap:10px;
     padding: 10px;
 }
 
 .graphics-container-first-line{
-    /* background-color: brown; */
+   
     display:grid;
     grid-template-columns: 50% 50%;
     gap:10px
@@ -18,7 +16,7 @@
     
 }
 .graphics-container-second-line{
-    /* background-color: blue; */
+    
     display:grid;
     grid-template-columns: 1.7fr 1fr 1fr;
     gap:10px
@@ -27,7 +25,7 @@
 
 .graphics-container-third-line{
     display: grid;
-    /* grid-template-columns: 1fr; */
+    
 }
 
 
@@ -39,8 +37,12 @@
 }
 
 .filter-picker{
-    text-align: end;
+    display: flex;
+    justify-content: end;
     margin-right: 50px;
+    gap:30px;
+    /* width: 400px; */
+    
 }
 
 .today-sales-container{
@@ -88,5 +90,21 @@
 .today-sales-comparasion{
     color:dodgerblue;
     font-size:.7rem
+}
+
+/* .select-picker{
+    display: inline-block;
+} */
+
+.filterBtn{
+    padding: 5px 15px;
+    background-color: dodgerblue;
+    color:white
+}
+
+.date-picker{
+    display: inline-block;
+    text-align: center;
+    height: 25px;
 }
 

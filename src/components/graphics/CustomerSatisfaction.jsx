@@ -16,7 +16,7 @@ const CustomerSatisfaction = ({ data }) => {
       height="300px"
       data={chartData}
       options={{
-        title: 'Rating by Day',
+        title: 'Customer Satisfaction by Ratings',
         hAxis: { title: 'Day', titleTextStyle: { color: '#333' } },
         vAxis: { minValue: 0 },
         chartArea: { width: '80%', height: '70%' },

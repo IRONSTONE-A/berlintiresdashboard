@@ -48,7 +48,7 @@ const CustomerInsight = () => {
   ];
 
   const options = {
-    title: 'Customer Insight by Type',
+    title: 'Customer Insights by Type',
     curveType: 'function',
     legend: { position: 'bottom' },
   };

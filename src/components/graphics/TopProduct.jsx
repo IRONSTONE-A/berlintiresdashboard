@@ -6,14 +6,14 @@ import { Chart } from 'react-google-charts';
 
 
 const TopProduct = ({chartData}) => {
-  console.log(chartData)
+  // console.log(chartData)
   
   return (
     <div style={{ width: '100%', margin: 'auto' }}>
       
       <Chart
         width={'100%'}
-        height={'270px'}
+        height={'240px'}
         chartType="BarChart"
         loader={<div>Loading Chart</div>}
         data={chartData}

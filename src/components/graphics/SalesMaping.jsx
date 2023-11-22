@@ -17,7 +17,7 @@ const SalesMapping = ({filteredData}) => {
       
       <Chart
         width={'100%'}
-        height={'270px'}
+        height={'240px'}
         chartType="GeoChart"
         loader={<div>Loading Chart...</div>}
         data={[
@@ -25,6 +25,7 @@ const SalesMapping = ({filteredData}) => {
           ...filteredData,
         ]}
         options={{
+          title: "Sales Mapping by Country",
           colorAxis: { colors: ['yellow', 'red'] },
           backgroundColor: 'white',
           datalessRegionColor: 'lightgrey',
