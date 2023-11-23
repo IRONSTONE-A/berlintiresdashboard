@@ -13,7 +13,7 @@ const TopProduct = ({chartData}) => {
       
       <Chart
         width={'100%'}
-        height={'240px'}
+        height={'100%'}
         chartType="BarChart"
         loader={<div>Loading Chart</div>}
         data={chartData}
@@ -21,12 +21,10 @@ const TopProduct = ({chartData}) => {
           title: 'Top 4 Products by Total Value',
           chartArea: { width: '50%' },
           hAxis: {
-            title: 'Total Value',
+            
             minValue: 0,
           },
-          vAxis: {
-            title: 'Product',
-          },
+          
         }}
       />
     </div>

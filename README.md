@@ -4,6 +4,8 @@
 
 This project is a React application created using [Vite](https://vitejs.dev/). Vite is a JavaScript tool that provides a fast development experience.
 
+![React Dashboard Projesi](./src/assets/berlintiresDashbord.gif)
+
 ## Getting Started
 
 Clone the project to your local environment:
@@ -92,6 +94,8 @@ Check the firewall settings on the server and ensure that the port on which the 
 # React Dashboard Projesi
 
 Bu proje, [Vite](https://vitejs.dev/) kullanılarak oluşturulmuş bir React uygulamasıdır. Vite, hızlı bir geliştirme deneyimi sunan bir JavaScript aracıdır.
+
+![React Dashboard Projesi](./src/assets/berlintiresDashbord.gif)
 
 ## Başlangıç
 

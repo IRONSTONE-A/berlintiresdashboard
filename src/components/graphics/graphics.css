@@ -1,75 +1,77 @@
 .graphics-container{
-   
     display: grid;
     background-color:#eff0f2 ;
-    
-    gap:10px;
-    padding: 10px;
+    grid-template-rows: 31% 31% 31%;
+    gap:6px;
+    padding: 5px;
+    height: calc(100vh - 5rem);
 }
-
-.graphics-container-first-line{
-   
+.graphics-container-first-line{  
     display:grid;
-    grid-template-columns: 50% 50%;
-    gap:10px
-    
-    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap:6px     
 }
-.graphics-container-second-line{
-    
+.graphics-container-second-line{  
     display:grid;
     grid-template-columns: 1.7fr 1fr 1fr;
-    gap:10px
-    
+    grid-template-rows: auto;
+    gap:6px  
 }
-
 .graphics-container-third-line{
     display: grid;
+    grid-template-rows: auto;
     
 }
-
-
-
 .filter-panel-container-content{
     display:grid;
     grid-template-columns: 1.7fr 1fr 1fr;
-    gap:10px
+    grid-template-rows: 1fr;
+    gap:6px
 }
 
 .filter-picker{
     display: flex;
     justify-content: end;
     margin-right: 50px;
-    gap:30px;
-    /* width: 400px; */
-    
+    gap:30px;   
+}
+.today-sales-container{
+    padding: 6px;
+    height: 98%;
+    background-color: #fff;
 }
 
-.today-sales-container{
-    padding: 20px;
-    height: 300px;
+.today-sales-title{
+    font-size: 1rem;
+}
+.today-sales-pag{
+    font-size: .7rem;
 }
 .today-sales-content{
     display: flex;
-    padding: 10px;
-    gap:15px;
+    padding: 5px;
+    gap:5px;
     justify-content: space-evenly;
-    margin-top:20px
-    
-    
+    margin-top:7px   
 }
 .today_total_sales, .today_total_order, .today_product_sold{
-    width: 33%;
-    height: 170px ;
+    width: 28%;
+    height: 30% ;
     padding: 15px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-.today-sales-container{
-    background-color: #fff;
+.today-sales-content h2 {
+font-size: 1rem;
 }
+
+.today-sales-content p{
+    font-size: .7rem;
+}
+
 .today_total_sales{
    background-color:#FFE2E5 ;
   
@@ -84,24 +86,18 @@
 }
 
 .today-sales-img{
-    width: 32px;
+    width: 24px;
 }
 
 .today-sales-comparasion{
     color:dodgerblue;
     font-size:.7rem
 }
-
-/* .select-picker{
-    display: inline-block;
-} */
-
 .filterBtn{
     padding: 5px 15px;
     background-color: dodgerblue;
     color:white
 }
-
 .date-picker{
     display: inline-block;
     text-align: center;

@@ -50,6 +50,7 @@ const CustomerInsight = () => {
   const options = {
     title: 'Customer Insights by Type',
     curveType: 'function',
+    chartArea: { width: '80%', height: '70%' },
     legend: { position: 'bottom' },
   };
 
@@ -58,7 +59,7 @@ const CustomerInsight = () => {
     <Chart
       chartType="LineChart"
       width="100%"
-      height="300px"
+      height="100%"
       data={data}
       options={options}
     />

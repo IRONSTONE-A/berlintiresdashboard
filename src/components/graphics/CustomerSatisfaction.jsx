@@ -13,13 +13,13 @@ const CustomerSatisfaction = ({ data }) => {
     <Chart
       chartType="AreaChart"
       width="100%"
-      height="300px"
+      height="100%"
       data={chartData}
       options={{
         title: 'Customer Satisfaction by Ratings',
-        hAxis: { title: 'Day', titleTextStyle: { color: '#333' } },
+        hAxis: {  titleTextStyle: { color: '#333' } },
         vAxis: { minValue: 0 },
-        chartArea: { width: '80%', height: '70%' },
+        chartArea: { width: '70%', height: '60%' },
         colors: ['#4285F4'],
       }}
     />

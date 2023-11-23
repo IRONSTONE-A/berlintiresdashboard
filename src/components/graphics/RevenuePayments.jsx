@@ -48,23 +48,22 @@ const RevenuePayments = ({ data }) => {
     
     <Chart
       width={"100%"}
-      height={"300px"}
+      height={"100%"}
       chartType="ColumnChart"
       loader={<div>Loading Chart</div>}
       data={chartData}
       options={{
         title: "Revenue by Payments",
+        chartArea: { width: '40%' },
         hAxis: {
-          title: "Month",
+          
           minValue: 0,
         },
-        vAxis: {
-          title: "Total",
-        },
-        seriesType: "bars",
+        
+        // seriesType: "bars",
         series: { 5: { type: "line" } },
       }}
-      rootProps={{ "data-testid": "1" }}
+      // rootProps={{ "data-testid": "1" }}
     />
     </div>
   );

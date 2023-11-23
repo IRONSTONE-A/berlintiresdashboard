@@ -25,7 +25,7 @@ const TotalRevenue = ({ data }) => {
       data={chartData}
       options={{
         title: 'Total Sales by Product Line',
-        hAxis: { title: 'Product Line', titleTextStyle: { color: '#333' } },
+        hAxis: {  titleTextStyle: { color: '#333' } },
         vAxis: { minValue: 0 },
       }}
     />

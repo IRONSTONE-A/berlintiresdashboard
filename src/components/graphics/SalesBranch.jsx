@@ -14,13 +14,14 @@ const SalesBranch = ({ filteredChartData }) => {
             <Chart
               chartType="ColumnChart"
               width="100%"
-              height="240px"
+              height="100%"
               data={filteredChartData}
               options={{
                 title: 'Sales by Branch',
+                chartArea: { width: '70%', height: '60%' },
                 isStacked: true,
-                vAxis: { title: "Total", viewWindow: { max: 5000 } },
-                hAxis: { title: "Date" },
+                vAxis: {  viewWindow: { max: 5000 } },
+                
               }}
             />
           </>
