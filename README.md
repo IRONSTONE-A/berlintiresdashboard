@@ -12,7 +12,7 @@ Clone the project to your local environment:
 
 ```bash
 git clone https://github.com/IRONSTONE-A/berlintiresdashboard.git
-cd react-project
+cd berlintiresdashboard
 ```
 
 ## Install the required dependencies
@@ -67,9 +67,16 @@ Install the necessary dependencies for your project on the server.
 
 ```bash
 cd /server/project/directory
+
+sudo apt update
+sudo apt install nodejs
+sudo apt install npm
+
 npm install
 
 ```
+
+
 
 ## Start or Build the Project on the Server
 
