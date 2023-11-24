@@ -68,9 +68,11 @@ Install the necessary dependencies for your project on the server.
 ```bash
 cd /server/project/directory
 
-sudo apt update
-sudo apt install nodejs
-sudo apt install npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install node
+sudo apt auto-remove nodejs
+nvm install v16
+nvm use v16
 
 npm install
 
